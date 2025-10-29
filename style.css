@@ -1,5 +1,5 @@
 body {
-    background-image: scr("background.png");
+    background-image: scr("https://i.pinimg.com/736x/b5/42/25/b54225d36a087beae7fa1e06bee4a4ee.jpg");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -187,4 +187,5 @@ body {
     font-size: 36px;
 
 }
+
 
