@@ -1,0 +1,188 @@
+body {
+    background-image: url("images/background.png");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.main-container {
+    display: flex; 
+    align-items: center;
+    margin-left: 300px;
+}
+
+.book {
+    position: relative;
+    width: 600px;
+    height: 600px; 
+    perspective: 2000px;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: #fffdf5;
+    border-radius: 6px;
+    
+    background-image: repeating-linear-gradient(
+        #fffdf5,
+        #fffdf5 23px,
+        rgba(0, 0, 0, 0.06) 24px
+    );
+}
+
+.front {
+    border-left: 3px solid #e25b5b; 
+}
+
+.back {
+    transform: rotateY(180deg);
+    border-right: 3px solid #e25b5b; 
+}
+
+.page.flipped {
+    transform: rotateY(-180deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.page .content {
+    padding: 40px;
+    font-family: "Georgia", serif;
+    font-size: 22px;
+}
+
+.spotify {
+    margin-left: 80px; 
+    width: 300px;
+}
+
+/* --- ABELHA --- */
+
+.bee {
+    position: fixed;
+    top: 50px;
+    left: -100px; 
+    width: 30px;
+    height: 30px;
+    background-color: #ffc107; /* Corpo da abelha */
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: fly-across 20s linear infinite; 
+}
+
+.bee::before,
+.bee::after {
+    content: '';
+    position: absolute;
+    width: 100%; /* Largura do corpo */
+    height: 5px; 
+    background-color: black;
+    left: 0;
+    border-radius: 2px;
+    z-index: 1; 
+}
+.bee::before { /* Primeira listra */
+    top: 8px; 
+}
+.bee::after { /* Segunda listra */
+    top: 17px; 
+}
+
+.bee-wing {
+    position: absolute;
+    width: 15px; 
+    height: 20px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 50% 50% 0 0; 
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    z-index: -1; /* Fica atrás do corp*/
+    transform-origin: bottom center; 
+    animation: wing-flap 0.2s ease-in-out infinite alternate; /* Bater asas */
+}
+
+.bee-wing.left {
+    top: -10px; 
+    left: 5px; 
+    transform: rotate(20deg); 
+}
+
+.bee-wing.right {
+    top: -10px;
+    right: 5px; 
+    transform: rotate(-20deg); 
+}
+
+
+/*  Animação de Bater Asas */
+@keyframes wing-flap {
+    0% {
+        transform: rotateX(0deg) translateY(0); 
+    }
+    100% {
+        transform: rotateX(45deg) translateY(-5px); 
+    }
+}
+
+
+/* Movimento de Voo Ondulatório*/
+@keyframes fly-across {
+    0% {
+        transform: translate(-100px, 0px) rotate(0deg); 
+    }
+    10% {
+        transform: translate(10vw, -20px) rotate(5deg);
+    }
+    20% {
+        transform: translate(20vw, 15px) rotate(-3deg);
+    }
+    30% {
+        transform: translate(30vw, -10px) rotate(8deg);
+    }
+    40% {
+        transform: translate(40vw, 20px) rotate(-6deg);
+    }
+    50% {
+        transform: translate(50vw, -5px) rotate(2deg);
+    }
+    60% {
+        transform: translate(60vw, 25px) rotate(-4deg);
+    }
+    70% {
+        transform: translate(70vw, -15px) rotate(7deg);
+    }
+    80% {
+        transform: translate(80vw, 10px) rotate(-2deg);
+    }
+    90% {
+        transform: translate(90vw, -25px) rotate(9deg);
+    }
+    100% {
+        transform: translate(110vw, 0px) rotate(0deg);
+    }
+}
+
+/* TEXTO */
+
+.content.cover {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 36px;
+}
