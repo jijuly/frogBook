@@ -1,5 +1,5 @@
 body {
-    background-image: url("images/background.png");
+    background-image: url("background.png");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,4 +185,5 @@ body {
     text-align: center;
     color: #4CAF50;
     font-size: 36px;
+
 }
